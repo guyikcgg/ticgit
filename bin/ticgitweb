@@ -30,7 +30,7 @@ enable :run
 
 $ticgit = TicGitNG.open('.')
 
-get('/_stylesheet.css') { Sass::Engine.new(File.read(__FILE__).gsub(/.*__END__/m, '')).render }
+get('/_stylesheet.css') { Sass::Engine.new(File.read(File.dirname(__FILE__) + '/stylesheet.css')).render }
 
 # ticket list view
 get '/' do
@@ -229,90 +229,4 @@ def show
         %br
   })
 end
-
-__END__
-body
-  :font
-    family: Verdana, Arial, "Bitstream Vera Sans", Helvetica, sans-serif
-    color: black
-  line-height: 160%
-  background-color: white
-  margin: 2em
-
-#navigation
-  a
-    background-color: #e0e0e0
-    color: black
-    text-decoration: none
-    padding: 2px
-  padding: 5px
-  border-bottom: 1px black solid
-  
-#action
-  text-align: right
-  
-.addtag
-  padding: 5px 0
-  
-h1
-  display: block
-  padding-bottom: 5px
-
-a
-  color: black
-a.exists
-  font-weight: bold
-a.unknown
-  font-style: italic
-
-.comments
-  margin: 10px 20px
-  .comment
-    .head
-      background: #eee
-      padding: 4px
-    .comment-text
-      padding: 10px
-      color: #333
-  
-table.long
-  width: 100%
-  
-table
-  tr.even
-    td
-      background: #eee
-  tr.odd
-    td
-      background: #fff
-      
-table
-  tr
-    th
-      text-align: left
-      padding: 3px
-      vertical-align: top
-    td.open
-      background: #ada
-    td.resolved
-      background: #abd
-    td.hold
-      background: #dda
-    td.invalid
-      background: #aaa  
-      
-.submit
-  font-size: large
-  font-weight: bold
-
-.page_title
-  font-size: xx-large
-
-.edit_link
-  color: black
-  font-size: 14px
-  font-weight: bold
-  background-color: #e0e0e0
-  font-variant: small-caps
-  text-decoration: none
 
