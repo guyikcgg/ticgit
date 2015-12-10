@@ -146,7 +146,7 @@ def new_ticket
         %tr
           %td
           %td
-            %input{:type => 'submit', :value => 'Create Ticket'}
+            %input.btn{:type => 'submit', :value => 'Create Ticket'}
   })
 end
 
@@ -207,14 +207,14 @@ def show
               %a{:href => "/tag/#{t}"}= t
             %div.addtag
               %input{:name => 'tags'}
-              %input{:type => 'submit', :value => 'add tag'}
+              %input.btn{:type => 'submit', :value => 'add tag'}
     
     %h3 Comments
     %form{:action => "/a/add_comment/#{@ticket.ticket_id}", :method => 'POST'}
       %div
         %textarea{:name => 'comment', :cols => 50}
         %br
-        %input{:type => 'submit', :value => 'add comment'}
+        %input.btn{:type => 'submit', :value => 'add comment'}
         
     %div.comments
       - @ticket.comments.reverse.each do |t|
